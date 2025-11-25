@@ -41,7 +41,7 @@ retriever = existing_vector_store.as_retriever(
 )
 
 # -------------------- LLM + RAG CHAIN --------------------
-llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
+llm = ChatOpenAI(model_name="gpt-5-nano", temperature=0)
 
 # IMPORTANT:
 # create_retrieval_chain passes "input" (user query) + "context" (docs)
@@ -66,26 +66,29 @@ def index():
 
 @app.route("/get", methods=["GET"])
 def get_response():
-    # Read from query string: /get?msg=Hello
     user_input = (request.args.get("msg") or "").strip()
 
     if not user_input:
         return jsonify({"response": "Please type a question so I can help you."})
 
-    # Call RAG chain
-    response = rag_chain.invoke({"input": user_input})
+    try:
+        response = rag_chain.invoke({"input": user_input})
 
-    # For create_retrieval_chain, the answer is usually under key "answer"
-    # To be safe, we fallback to other common keys.
-    answer = (
-        response.get("answer")
-        or response.get("Answer")
-        or response.get("output_text")
-        or "I could not generate a response. Please try again."
-    )
+        answer = (
+            response.get("answer")
+            or response.get("Answer")
+            or response.get("output_text")
+            or "I could not generate a response."
+        )
+        return jsonify({"response": answer})
 
-    print(f"User: {user_input}\nBot: {answer}")
-    return jsonify({"response": answer})
+    except Exception as e:
+        print("❌ ERROR:", e)
+        return jsonify({
+            "response": "I am currently unable to generate an answer due to API limits. "
+                        "Please try again later or check your OpenAI billing/quota."
+        })
+
 
 
 if __name__ == "__main__":

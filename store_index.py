@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 import os
-from helper import load_pdf_files, filter_to_minimal_docs, text_split_documents, download_embeddings_model
+from src.helper import load_pdf_files, filter_to_minimal_docs, text_split_documents, download_embeddings_model
 from pinecone import Pinecone
 from pinecone import ServerlessSpec
 
