@@ -11,12 +11,13 @@ setup(
     install_requires=[
         "langchain<1.0",
         "jupyterlab",
+        "jupyter",
         "flask==3.1.1",
         "python-dotenv==1.1.0",
         "sentence-transformers==4.1.0",
         "pypdf==5.6.1",
         "langchain-pinecone<1.0",
         "langchain-openai<1.0",
-        "langchain-contextual<1.0",
+        "langchain-community<1.0",
     ],
 )

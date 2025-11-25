@@ -7,6 +7,8 @@
 bash template.sh
 ```
 
+Load your pdf data in ```data``` folder
+
 ### STEPS:
 
 Clone the repository
