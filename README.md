@@ -1,6 +1,12 @@
 # RAG-Based-Conversational-Medical-Chatbot
 
 # How to run?
+### Automate project setup directory
+
+```bash
+bash template.sh
+```
+
 ### STEPS:
 
 Clone the repository
