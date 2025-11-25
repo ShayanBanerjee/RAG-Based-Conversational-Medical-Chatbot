@@ -73,7 +73,7 @@ open up localhost:
 
 ## 2. Create IAM user for deployment
 
-	#with specific access
+	#with specific access (https://console.aws.com)
 
 	1. EC2 access : It is virtual machine
 
@@ -100,7 +100,7 @@ open up localhost:
 
 	
 ## 3. Create ECR repo to store/save docker image
-    - Save the URI: 315865595366.dkr.ecr.us-east-1.amazonaws.com/medicalbot
+    - Save the URI: 680528876031.dkr.ecr.eu-north-1.amazonaws.com/medicalbot
 
 	
 ## 4. Create EC2 machine (Ubuntu) 
