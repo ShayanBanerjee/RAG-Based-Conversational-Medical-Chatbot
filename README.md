@@ -132,7 +132,7 @@ newgrp docker
 ### Next instructions (on EC2)
 #### Create a folder
 ```bash
-	$ mkdir actions-runner && cd actions-runner
+$ mkdir actions-runner && cd actions-runner
 ```
 #### Download the latest runner package
 ```bash
