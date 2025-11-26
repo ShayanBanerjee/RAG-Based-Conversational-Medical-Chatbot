@@ -162,6 +162,14 @@ Keep others default
 ./run.sh
 ```
 
+To add port 8080 as our app is running on it in ec2
+```bash
+i-0a163ceb57747fcdb (medical-machine) -> Security -> Security groups (sg-0629661eff54cc5ca - launch-wizard-1) -> Edit inbound rules -> Add rule -> In Custom TCP change port to 8080 and 0.0.0.0/0 -> Save rules
+```
+
+Public IPv4 address of the instance with port:
+http://51.21.152.95:8080/ 
+
 # 7. Setup github secrets:
 
 *Github repo -> Settings -> Secrets and variables -> Actions -> New repository secret*
