@@ -125,11 +125,44 @@ open up localhost:
 	newgrp docker
 	
 # 6. Configure EC2 as self-hosted runner:
-    setting>actions>runner>new self hosted runner> choose os> then run command one by one
+    Github repo (https://github.com/ShayanBanerjee/RAG-Based-Conversational-Medical-Chatbot.git) > setting > actions >runner >new self hosted runner > choose os (linux)> then run command one by one
 
+### Next instructions (on EC2)
+#### Create a folder
+```bash
+	$ mkdir actions-runner && cd actions-runner
+```
+#### Download the latest runner package
+```bash
+$ curl -o actions-runner-linux-x64-2.329.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.329.0/actions-runner-linux-x64-2.329.0.tar.gz
+```
+#### Optional: Validate the hash
+```bash
+$ echo "194f1e1e4bd02f80b7e9633fc546084d8d4e19f3928a324d512ea53430102e1d  actions-runner-linux-x64-2.329.0.tar.gz" | shasum -a 256 -c
+```
+
+#### Extract the installer
+```bash
+$ tar xzf ./actions-runner-linux-x64-2.329.0.tar.gz
+```
+
+### Configure
+
+#### Create the runner and start the configuration experience
+```bash
+./config.sh --url https://github.com/ShayanBanerjee/RAG-Based-Conversational-Medical-Chatbot --token AFBBXU6NDVVZGTNGPDPDC63JEZGGM
+```
+*Enter the name of runner: [press Enter for ip-172-31-32-105]* __self-hosted__
+
+Keep others default 
+#### Last step, run it!
+```bash
+./run.sh
+```
 
 # 7. Setup github secrets:
 
+*Github repo -> Settings -> Secrets and variables -> Actions -> New repository secret*
    - AWS_ACCESS_KEY_ID
    - AWS_SECRET_ACCESS_KEY
    - AWS_DEFAULT_REGION
